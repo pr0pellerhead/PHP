@@ -1,0 +1,45 @@
+<form action="register.php" method="post">
+	<label>
+		Ime: <br/>
+		<input type="text" name="ime" required>
+	</label>
+	<br/>
+	<label>
+		Prezime: <br/>
+		<input type="text" name="prezime" required>
+	</label>
+	<br/>
+	<label>
+		Godina na ragjanje: <br/>
+		<input type="date" name="rodenden" required>
+	</label>
+	<br/>
+	<label>
+		Email: <br/>
+		<input type="email" name="email" required>
+	</label>
+	<br/>
+	<label>
+		Lozinka: <br/>
+		<input type="password" name="pwd1" required>
+	</label>
+	<br/>
+	<label>
+		Povtorno lozinka: <br/>
+		<input type="password" name="pwd2" required>
+	</label>
+	<br/>
+	<label>
+		Drzava: <br/>
+		<select name="drzava">
+			<option value="mk">Makedonija</option>
+			<option value="us">USA</option>
+			<option value="gb">Great Britain</option>
+			<option value="fr">France</option>
+			<option value="de">Germany</option>
+		</select>
+	</label>
+	<br/>
+	<br/>
+	<button type="submit">Register</button>
+</form>
