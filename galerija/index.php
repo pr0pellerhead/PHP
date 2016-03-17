@@ -1,5 +1,6 @@
 <?php 
 	$sliki = scandir('uploads/');
+	// print_r($sliki);
 ?>
 <html>
 	<head>
