@@ -43,7 +43,7 @@ class Marker {
 }
 
 
-$m1 = new Marker('zelena'); // po avtomatizam go povikuva konstruktorot
+$m1 = new Marker('siva'); // po avtomatizam go povikuva konstruktorot
 // $m1->setBoja('zelena');
 // echo $m1->getBoja();
 $m1->crtaj();
@@ -56,7 +56,38 @@ echo "\n\n\n\nEND!\n";
 
 
 
+class File {
 
+	private $fh; // file handle
+	private $filename;
+
+	public function __construct($filename){
+
+		$this->fh = fopen($filename, 'a+');
+		$this->filename = $filename;
+	}
+
+	public function write($text){
+		fwrite($this->fh, $text);
+	}
+
+	public function read(){
+		$size = filesize($this->filename);
+		rewind($this->fh);
+		return fread($this->fh, $size);
+	}
+
+	public function delete(){
+		fclose($this->fh);
+		unlink($this->filename);
+	}
+
+	public function __destruct(){
+		if(file_exists($this->filename)){
+			fclose($this->fh);
+		}
+	}
+}
 
 
 
@@ -85,15 +116,49 @@ unset($f);
 
 
 
-class MobilePhone {
-	private $width = 22; // cm
-	private $dimensions = 'inch';
+// class MobilePhone {
+// 	private $width = 22; // cm
+// 	private $dimensions = 'inch';
+// }
+
+
+
+
+
+
+
+
+class Student {
+	private $ime;
+	private $prezime;
+	private $den_na_ragjanje;
+
+	public function setIme($i){
+		$this->ime = $i;
+	}
+
+	public function getIme(){
+		return $this->ime;
+	}
+
+	public function __construct($dr){
+		$this->den_na_ragjanje = $dr;
+	}
+
+	public function __destruct(){
+		echo "destructor";
+	}
 }
 
 
+$s = new Student('29/10/1982');
 
+// $s->ime = 'Bojan';
+// $s->prezime = 'Gavrovski';
+// $s->den_na_ragjanje = '29/10/1982';
+$s->setIme('Bojan');
+echo $s->getIme();
 
-
-
+unset($s);
 
 ?>
