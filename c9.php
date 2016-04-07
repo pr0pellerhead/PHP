@@ -18,8 +18,8 @@ class Roditel {
 
 	public function getParentAge() {
 		return $this->parent_age;
-	}
-}
+	
+}}
 
 class Dete extends Roditel {
 	protected $child_name = 'Jane Doe';
@@ -27,8 +27,8 @@ class Dete extends Roditel {
 
 	
 
-	public function setChildName($name) {
-		$this->child_name = $name;
+	public function setChildName($name) 
+{		$this->child_name = $name;
 	}
 
 	public function setChildAge($age) {
