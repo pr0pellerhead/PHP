@@ -1,0 +1,33 @@
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+		<script>
+
+			$(document).ready(function(){
+
+				$('.btn1').on('click', function(){
+
+					$.get(
+						'ajax.php', // koja strana ja otvorate
+						{}, // podatoci koi gi isprakjate (vo ovoj sluchaj nishto)
+						function(response){ // shto da se sluchi otkako kje zavrshi povikot
+							console.log(response);
+
+							var output = 'Name: ' + response.firstname + ',<br/> Lastanme: ' + response.lastname + ',<br/> SSN: ' + response.ssn + ',<br/> Phone: ' + response.phone;
+
+							$('.content').html(output);
+						}, 
+						'json' // tipot na podatoci koi gi ochekuvate
+					);
+				});
+			});
+
+		</script>
+	</head>
+	<body>
+		<div class="content"></div>
+		<button class="btn1">Click Me!</button>
+	</body>
+</html>

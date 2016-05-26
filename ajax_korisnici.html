@@ -1,0 +1,51 @@
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+		<script>
+
+			$(document).ready(function(){
+
+				$('.btn1').on('click', function(){
+
+					$.get(
+						'ajax_korisnici.php',
+						{},
+						function(response){
+							console.log(response);
+
+							var output = '';
+
+							for(var i = 0; i < response.length; i++){
+								output += '<tr>';
+								output += '<td>' + response[i].id + '</td>';
+								output += '<td>' + response[i].ime + '</td>';
+								output += '<td>' + response[i].email + '</td>';
+								output += '<td>' + response[i].password + '</td>';
+								output += '<td>' + response[i].id_tip_korisnici + '</td>';
+								output += '</tr>';
+							}
+
+							$('table').append(output);
+						}, 
+						'json'
+					);
+				});
+			});
+
+		</script>
+	</head>
+	<body>
+		<button class="btn1">Click Me!</button>
+		<table border="1" width="100%">
+			<tr>
+				<td>id</td>
+				<td>ime</td>
+				<td>email</td>
+				<td>password</td>
+				<td>id_tip_korisnici</td>
+			</tr>
+		</table>
+	</body>
+</html>
